@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI CareerForge | Interview Readiness Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Product navigation">
+        <a class="brand" href="#top" aria-label="AI CareerForge home">
+          <span class="brand-mark">CF</span>
+          <span>
+            <strong>CareerForge</strong>
+            <small>Interview Readiness AI</small>
+          </span>
+        </a>
+
+        <nav class="nav-list">
+          <a class="active" href="#analyzer">Analyzer</a>
+          <a href="#signals">Signals</a>
+          <a href="#feedback">Feedback</a>
+          <a href="#portfolio">Portfolio</a>
+        </nav>
+
+        <section class="trust-panel" aria-label="Product performance">
+          <span class="panel-kicker">2 minute scan</span>
+          <strong>4 readiness dimensions, one decision-grade score.</strong>
+          <div class="mini-metrics">
+            <span><b>94%</b> clarity</span>
+            <span><b>ATS</b> audit</span>
+          </div>
+        </section>
+      </aside>
+
+      <section class="main-stage" id="top">
+        <header class="topbar">
+          <div>
+            <span class="eyebrow">AI CareerForge</span>
+            <h1>Interview readiness, measured like a premium hiring platform.</h1>
+          </div>
+          <button class="ghost-button" id="resetBtn" type="button">Reset scan</button>
+        </header>
+
+        <section class="hero-grid" aria-label="Readiness overview">
+          <div class="hero-copy">
+            <p>
+              Analyze resume strength, technical basics, communication clarity, and portfolio
+              credibility in one focused dashboard built for students preparing for placements.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-button" href="#analyzer">Start readiness scan</a>
+              <button class="secondary-button" id="demoBtn" type="button">Load premium demo</button>
+            </div>
+          </div>
+
+          <div class="score-card" id="scoreCard" aria-live="polite">
+            <div class="score-card-head">
+              <span>Readiness Score</span>
+              <strong id="levelText">Intermediate</strong>
+            </div>
+            <div class="score-ring" style="--score: 66">
+              <span id="scoreText">66</span>
+              <small>/100</small>
+            </div>
+            <div class="score-breakdown">
+              <span>Resume <b id="resumeMini">68</b></span>
+              <span>Technical <b id="techMini">64</b></span>
+              <span>Communication <b id="commMini">70</b></span>
+              <span>Portfolio <b id="portfolioMini">60</b></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="visual-band" id="signals" aria-label="AI scan visualization">
+          <img src="assets/readiness-visual.png" alt="Premium AI readiness dashboard visualization" />
+          <div class="signal-strip">
+            <span>ATS Match</span>
+            <span>Skill Gaps</span>
+            <span>Voice Clarity</span>
+            <span>GitHub Proof</span>
+          </div>
+        </section>
+
+        <section class="workspace-grid" id="analyzer">
+          <form class="input-panel" id="analyzerForm">
+            <div class="section-heading">
+              <span class="eyebrow">Input Console</span>
+              <h2>Run the readiness analyzer</h2>
+            </div>
+
+            <div class="field-grid">
+              <label class="file-drop">
+                <input id="resumeFile" type="file" accept=".pdf,.doc,.docx" />
+                <span class="field-icon">01</span>
+                <strong>Upload resume</strong>
+                <small id="fileName">PDF, DOC, or DOCX</small>
+              </label>
+
+              <label>
+                <span>Target role or job description keywords</span>
+                <textarea
+                  id="jobKeywords"
+                  rows="4"
+                  placeholder="React, SQL, OOP, API design, data structures, leadership..."
+                ></textarea>
+              </label>
+
+              <label>
+                <span>Technical check</span>
+                <select id="technicalLevel">
+                  <option value="45">Needs revision: missed core DS/OOP/SQL basics</option>
+                  <option value="64" selected>Placement-ready basics with a few gaps</option>
+                  <option value="82">Strong fundamentals across DS, algorithms, OOP, SQL</option>
+                  <option value="94">Advanced: solves under time pressure</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Introduce yourself in 3 lines</span>
+                <textarea
+                  id="communicationText"
+                  rows="5"
+                  placeholder="I am a final-year CS student focused on backend engineering..."
+                ></textarea>
+              </label>
+
+              <label>
+                <span>Portfolio link</span>
+                <input id="portfolioLink" type="url" placeholder="https://github.com/yourname" />
+              </label>
+
+              <label>
+                <span>Project proof</span>
+                <select id="portfolioDepth">
+                  <option value="42">Few public projects or unclear descriptions</option>
+                  <option value="60" selected>2-3 projects with basic README files</option>
+                  <option value="78">Multiple deployed projects with clean documentation</option>
+                  <option value="92">High-signal portfolio with commits, demos, and metrics</option>
+                </select>
+              </label>
+            </div>
+
+            <button class="primary-button wide" type="submit">Analyze readiness</button>
+          </form>
+
+          <section class="output-panel" id="feedback" aria-live="polite">
+            <div class="section-heading">
+              <span class="eyebrow">AI Verdict</span>
+              <h2>Personalized improvement plan</h2>
+            </div>
+
+            <div class="level-meter">
+              <span>Beginner</span>
+              <span>Intermediate</span>
+              <span>Expert</span>
+              <i id="meterPin" style="left: 66%"></i>
+            </div>
+
+            <div class="feedback-list" id="feedbackList"></div>
+          </section>
+        </section>
+
+        <section class="pillar-grid" id="portfolio" aria-label="Scoring pillars">
+          <article>
+            <span>25%</span>
+            <h3>Resume</h3>
+            <p>ATS terms, measurable achievements, clarity, grammar, and formatting consistency.</p>
+          </article>
+          <article>
+            <span>30%</span>
+            <h3>Technical</h3>
+            <p>Rapid fundamentals across data structures, algorithms, OOP, and SQL readiness.</p>
+          </article>
+          <article>
+            <span>25%</span>
+            <h3>Communication</h3>
+            <p>Concise self-introduction, structure, confidence signals, and filler-word control.</p>
+          </article>
+          <article>
+            <span>20%</span>
+            <h3>Portfolio</h3>
+            <p>GitHub or LinkedIn proof: repo quality, descriptions, commits, demos, and diversity.</p>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
