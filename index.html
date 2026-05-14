@@ -7,13 +7,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="app-shell">
+    <!-- Ambient Background Glows -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <main class="app-shell animate-fade-in">
       <aside class="sidebar" aria-label="Product navigation">
         <a class="brand" href="#top" aria-label="AI CareerForge home">
           <span class="brand-mark">CF</span>
@@ -41,7 +45,7 @@
       </aside>
 
       <section class="main-stage" id="top">
-        <header class="topbar">
+        <header class="topbar animate-fade-in delay-1">
           <div>
             <span class="eyebrow">AI CareerForge</span>
             <h1>Interview readiness, measured like a premium hiring platform.</h1>
@@ -49,7 +53,7 @@
           <button class="ghost-button" id="resetBtn" type="button">Reset scan</button>
         </header>
 
-        <section class="hero-grid" aria-label="Readiness overview">
+        <section class="hero-grid animate-fade-in delay-2" aria-label="Readiness overview">
           <div class="hero-copy">
             <p>
               Analyze resume strength, technical basics, communication clarity, and portfolio
@@ -79,7 +83,7 @@
           </div>
         </section>
 
-        <section class="visual-band" id="signals" aria-label="AI scan visualization">
+        <section class="visual-band animate-fade-in delay-3" id="signals" aria-label="AI scan visualization">
           <img src="assets/readiness-visual.png" alt="Premium AI readiness dashboard visualization" />
           <div class="signal-strip">
             <span>ATS Match</span>
@@ -89,7 +93,7 @@
           </div>
         </section>
 
-        <section class="workspace-grid" id="analyzer">
+        <section class="workspace-grid animate-fade-in delay-4" id="analyzer">
           <form class="input-panel" id="analyzerForm">
             <div class="section-heading">
               <span class="eyebrow">Input Console</span>
