@@ -45,25 +45,21 @@
       </aside>
 
       <section class="main-stage" id="top">
-        <header class="topbar animate-fade-in delay-1">
-          <div>
-            <span class="eyebrow">AI CareerForge</span>
-            <h1>Interview readiness, measured like a premium hiring platform.</h1>
+        <header class="hero-centered animate-fade-in delay-1">
+          <span class="eyebrow">AI CareerForge</span>
+          <h1>Interview readiness, measured like a premium hiring platform.</h1>
+          <p class="hero-subtitle">
+            Analyze resume strength, technical basics, communication clarity, and portfolio
+            credibility in one focused dashboard built for students preparing for placements.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#analyzer">Get Started</a>
+            <button class="secondary-button" id="demoBtn" type="button">Load premium demo</button>
           </div>
-          <button class="ghost-button" id="resetBtn" type="button">Reset scan</button>
         </header>
 
         <section class="hero-grid animate-fade-in delay-2" aria-label="Readiness overview">
-          <div class="hero-copy">
-            <p>
-              Analyze resume strength, technical basics, communication clarity, and portfolio
-              credibility in one focused dashboard built for students preparing for placements.
-            </p>
-            <div class="hero-actions">
-              <a class="primary-button" href="#analyzer">Start readiness scan</a>
-              <button class="secondary-button" id="demoBtn" type="button">Load premium demo</button>
-            </div>
-          </div>
+          <div class="score-card-wrapper">
 
           <div class="score-card" id="scoreCard" aria-live="polite">
             <div class="score-card-head">
@@ -81,10 +77,46 @@
               <span>Portfolio <b id="portfolioMini">60</b></span>
             </div>
           </div>
+          </div>
         </section>
 
         <section class="visual-band animate-fade-in delay-3" id="signals" aria-label="AI scan visualization">
-          <img src="assets/readiness-visual.png" alt="Premium AI readiness dashboard visualization" />
+          <div class="visual-band-image">
+            <svg id="signalGraph" viewBox="0 0 800 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-label="AI Readiness Signal Graph">
+              <defs>
+                <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#d4af37" stop-opacity="0.4"/>
+                  <stop offset="100%" stop-color="#d4af37" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- Y-axis grid lines (y: 10=100, 52=75, 94=50, 136=25, 178=0) -->
+              <line x1="70" y1="10"  x2="790" y2="10"  stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <line x1="70" y1="52"  x2="790" y2="52"  stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <line x1="70" y1="94"  x2="790" y2="94"  stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <line x1="70" y1="136" x2="790" y2="136" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <line x1="70" y1="178" x2="790" y2="178" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <!-- Y-axis labels -->
+              <text x="62" y="14"  fill="#555" font-size="12" text-anchor="end" font-family="Outfit,sans-serif">100</text>
+              <text x="62" y="56"  fill="#555" font-size="12" text-anchor="end" font-family="Outfit,sans-serif">75</text>
+              <text x="62" y="98"  fill="#555" font-size="12" text-anchor="end" font-family="Outfit,sans-serif">50</text>
+              <text x="62" y="140" fill="#555" font-size="12" text-anchor="end" font-family="Outfit,sans-serif">25</text>
+              <text x="62" y="182" fill="#555" font-size="12" text-anchor="end" font-family="Outfit,sans-serif">0</text>
+              <!-- Dynamic fill area -->
+              <polygon id="graphFill" fill="url(#goldGrad)"/>
+              <!-- Dynamic gold line -->
+              <polyline id="graphLine" fill="none" stroke="#d4af37" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+              <!-- Dynamic data points -->
+              <circle id="pt0" r="6" fill="#0a0a0a" stroke="#d4af37" stroke-width="2.5"/>
+              <circle id="pt1" r="6" fill="#0a0a0a" stroke="#d4af37" stroke-width="2.5"/>
+              <circle id="pt2" r="6" fill="#0a0a0a" stroke="#d4af37" stroke-width="2.5"/>
+              <circle id="pt3" r="6" fill="#0a0a0a" stroke="#d4af37" stroke-width="2.5"/>
+              <!-- X-axis labels -->
+              <text x="200" y="210" fill="#666" font-size="12" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600">ATS Match</text>
+              <text x="390" y="210" fill="#666" font-size="12" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600">Skill Gaps</text>
+              <text x="580" y="210" fill="#666" font-size="12" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600">Voice Clarity</text>
+              <text x="770" y="210" fill="#666" font-size="12" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600">GitHub Proof</text>
+            </svg>
+          </div>
           <div class="signal-strip">
             <span>ATS Match</span>
             <span>Skill Gaps</span>
